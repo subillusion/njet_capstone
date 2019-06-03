@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripition: MyString
+  completed: false
+
+two:
+  descripition: MyString
+  completed: false
