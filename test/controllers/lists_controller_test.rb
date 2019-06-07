@@ -20,7 +20,7 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
       post lists_url, params: { list: { completed: @list.completed, descripition: @list.descripition } }
     end
 
-    assert_redirected_to list_url(List.last)
+    assert_redirected_to root_url(List.last)
   end
 
   test "should show list" do
@@ -35,14 +35,15 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update list" do
     patch list_url(@list), params: { list: { completed: @list.completed, descripition: @list.descripition } }
-    assert_redirected_to list_url(@list)
+   # assert_redirected_to list_url(@list)
+   assert_redirected_to root_url
   end
 
   test "should destroy list" do
-    assert_difference('List.count', -1) do
+   assert_difference('List.count', -1) do
       delete list_url(@list)
     end
 
-    assert_redirected_to lists_url
+    assert_redirected_to root_url
   end
 end
