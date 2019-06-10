@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20190603010300) do
 
   create_table "lists", force: :cascade do |t|
+    t.string "title"
     t.string "descripition"
     t.boolean "completed", default: false
     t.datetime "created_at", null: false

@@ -6,7 +6,6 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
   end
- 
 
   # GET /lists/1
   # GET /lists/1.json
@@ -22,20 +21,14 @@ class ListsController < ApplicationController
   def edit
   end
 
-# POST /lists
-# POST/lists/title
-  def title
-  end
-    
   # POST /lists
   # POST /lists.json
- 
   def create
     @list = List.new(list_params)
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to root_url, notice: 'Task was successfully created.' }
+        format.html { redirect_to @list, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
@@ -49,7 +42,7 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to root_url, notice: 'Task was successfully updated.' }
+        format.html { redirect_to @list, notice: 'List was successfully updated.' }
         format.json { render :show, status: :ok, location: @list }
       else
         format.html { render :edit }
@@ -63,7 +56,7 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,9 +69,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:title, :descripition, :completed)
+      params.require(:list).permit(:title, :description, :completed)
     end
 end
- 
-  
-    
