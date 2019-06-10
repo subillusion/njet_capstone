@@ -10,10 +10,15 @@
       </ul>
     </div>
   <% end %>
+  
+   <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :list_title %>
+  </div>
 
   <div class="field">
-    <%= form.label :descripition %>
-    <%= form.text_field :descripition, id: :list_descripition %>
+    <%= form.label :description %>
+    <%= form.text_field :descripition, id: :list_descrpition %>
   </div>
 
   <div class="field">

@@ -17,11 +17,12 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create list" do
     assert_difference('List.count') do
-      post lists_url, params: { list: { completed: @list.completed, descripition: @list.descripition } }
+      post lists_url, params: { list: { completed: @list.completed, descripition: @list.descripition, title: @list.title } }
     end
 
     assert_redirected_to list_url(List.last)
   end
+  
 
   test "should show list" do
     get list_url(@list)
@@ -34,7 +35,7 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update list" do
-    patch list_url(@list), params: { list: { completed: @list.completed, descripition: @list.descripition } }
+    patch list_url(@list), params: { list: { completed: @list.completed, descripition: @list.descripition, title: @list.title } }
     assert_redirected_to list_url(@list)
   end
 
@@ -46,3 +47,5 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to lists_url
   end
 end
+
+  
