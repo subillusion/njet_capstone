@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Project:</strong>
-  <%= @list.title %>
+  <%= @title.title %>
 </p>
 <p>
   <strong>Task:</strong>
-  <%= @list.description %>
+  <%= @title.description %>
 </p>
-<div id="title_wrapper">
- <%= render @list.description %>
+<div id="todo_items_wrapper">
+ <%= render @title.description %>
  <div id="form">
   <%= render "title/form" %>
  </div>

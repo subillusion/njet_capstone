@@ -10,12 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190610155826) do
+ActiveRecord::Schema.define(version: 20190621152451) do
+
+  create_table "descriptions", force: :cascade do |t|
+    t.text "project"
+    t.integer "title_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title_id", "created_at"], name: "index_descriptions_on_title_id_and_created_at"
+    t.index ["title_id"], name: "index_descriptions_on_title_id"
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "project_tasks", force: :cascade do |t|
+    t.string "content"
+    t.integer "Project__title_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Project__title_id"], name: "index_project_tasks_on_Project__title_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.text "title"
+    t.integer "description_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["description_id"], name: "index_projects_on_description_id"
+  end
+
+  create_table "titles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
