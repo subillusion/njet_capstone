@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class ListsControllerTest < ActionDispatch::IntegrationTest
-  setup do
+    setup do
     @list = lists(:one)
   end
 
-  test "should get index" do
+  test "Should get Index"  do
     get lists_url
     assert_response :success
   end
@@ -17,7 +17,7 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create list" do
     assert_difference('List.count') do
-      post lists_url, params: { list: { completed: @list.completed, descripition: @list.descripition } }
+      post lists_url, params: { list: { completed: @list.completed, description: @list.description, title: @list.title } }
     end
 
     assert_redirected_to root_url(List.last)
@@ -34,9 +34,10 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update list" do
-    patch list_url(@list), params: { list: { completed: @list.completed, descripition: @list.descripition } }
+    patch list_url(@list), params: { list: { completed: @list.completed, descripition: @list.description } }
    # assert_redirected_to list_url(@list)
    assert_redirected_to root_url
+
   end
 
   test "should destroy list" do
@@ -44,6 +45,6 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
       delete list_url(@list)
     end
 
-    assert_redirected_to root_url
+    assert_redirected_to lists_url
   end
 end
