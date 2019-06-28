@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20190621152451) do
 
   create_table "descriptions", force: :cascade do |t|
@@ -20,6 +21,9 @@ ActiveRecord::Schema.define(version: 20190621152451) do
     t.index ["title_id", "created_at"], name: "index_descriptions_on_title_id_and_created_at"
     t.index ["title_id"], name: "index_descriptions_on_title_id"
   end
+=======
+ActiveRecord::Schema.define(version: 20190621152251) do
+>>>>>>> 0b991a591316cf1b21f61af54ed2680f8675dd4e
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
@@ -56,6 +60,7 @@ ActiveRecord::Schema.define(version: 20190621152451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
