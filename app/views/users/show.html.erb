@@ -6,6 +6,7 @@
         <%= @user.name %>
       </h1>
       <%= link_to "Logout", logout_path, method: "delete" %>
+      <%= link_to "Edit Your Profile", edit_user_path(@user) %>
     </section>
   </aside>
 </div>
